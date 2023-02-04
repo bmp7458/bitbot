@@ -1,7 +1,14 @@
 const Bot = require('anony-mpp-client');
 const prefix = 'b'
-const commands = ["help", "ping", "whoami", "myrole"]
+const commands = ["help", "about", "ping", "whoami", "myrole"]
 const roles = ["Bot Owner", "Administator", "Beta Bot Tester"]
+const http = require('http')
+
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('bitbot http server');
+}).listen(4040)
+
 
 const bitbot = new Bot({
   token: process.env.TOKEN,
@@ -13,7 +20,7 @@ const bitbot = new Bot({
   avoidServerCrash: true
 }, 'wss://mppclone.com:8443').login(process.env.TOKEN)
 
-/*
+
 function checkrole(id, role) {
   if (msg.p._id === id) {
       bitbot.chat(msg.p.name + ', you have the role: ' + roles[0])
@@ -21,7 +28,6 @@ function checkrole(id, role) {
       bitbot.chat(msg.p.name + ', You do not appear to have any roles!')
   }
 }
-*/
 
 bitbot.client.on('a', msg => {
   cmd = msg.a.split(' ')[0].toLowerCase()
@@ -51,7 +57,5 @@ bitbot.client.on('a', msg => {
         }
       }
     }
-    
-    
   }
 });
