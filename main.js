@@ -13,7 +13,7 @@ const bitbot = new Bot({
   avoidServerCrash: true
 }, 'wss://mppclone.com:8443').login(process.env.TOKEN)
 
-
+/*
 function checkrole(id, role) {
   if (msg.p._id === id) {
       bitbot.chat(msg.p.name + ', you have the role: ' + roles[0])
@@ -21,6 +21,7 @@ function checkrole(id, role) {
       bitbot.chat(msg.p.name + ', You do not appear to have any roles!')
   }
 }
+*/
 
 bitbot.client.on('a', msg => {
   cmd = msg.a.split(' ')[0].toLowerCase()
