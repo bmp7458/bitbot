@@ -1,5 +1,5 @@
 # bitbot
 ## a general purpose bot for mppclone 
-description coming soon, "general purpose" commands coming soon.
+description coming soon, more commands coming soon
 
-only midi commands.
+i dont know what to put here
