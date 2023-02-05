@@ -4,7 +4,6 @@ const commands = ["help", "about", "ping", "whoami", "myrole", "eval", "echo", "
 const roles = ["Bot Owner", "Administator", "Beta Bot Tester"]
 const http = require('http')
 const fs = require('fs')
-const indivroles = require('./roles.json')
 const axios = require("axios");
 
 function run(code) {
@@ -78,35 +77,50 @@ bitbot.client.on('a', msg => {
   if (cmd === `${prefix}echo`) {
     bitbot.chat(msg.a.split(" ").splice(1).join(" "))
   }
+
   /*
     if (cmd === `${prefix}eval`) { //
       bitbot.chat(run(msg.a.substr(cmd.length).trim()))
      //i wanna fix some of your eval code
     }
     */
-
-  if (cmd === `${prefix}eval`) {
-    if (msg.p._id !== "cedd04479c7028963568f1c0") { bitbot.chat("No permissions!"); return; } else {
+// i want js perms :[
+  if (cmd === `${prefix}eval`) {// you wgat are you doing
+    if (msg.p._id !== "cedd04479c7028963568f1c0" && msg.p._id !== "8956941e9807fc3991035dcf") { bitbot.chat("No permissions!"); return; } else {
       bitbot.chat(run(msg.a.substr(cmd.length).trim()))
     }
   }
-    if (cmd === `${prefix}whoami`) {
-      bitbot.chat(msg.p.name + " | ID: " + msg.p._id + ' | Color: ' + msg.p.color)
+  if (cmd === `${prefix}whoami`) {
+    bitbot.chat(msg.p.name + " | ID: " + msg.p._id + ' | Color: ' + msg.p.color)
+  }
+
+findParticipantByName = function(name) {
+    for (let part in client.ppl) {
+    part = client.ppl[part];
+    if (part.name.toLowerCase() == name.toLowerCase() || part.name.toLowerCase().includes(name) || part.id.toLowerCase().includes(name)) return part;
     }
-    
-    if (cmd === `${prefix}myrole`) {
-      if (msg.p._id === "cedd04479c7028963568f1c0") {
-        bitbot.chat(msg.p.name + ', you have the role: ' + roles[0])
+}
+  
+  if (cmd === `${prefix}whois`) {
+    bitbot.chat(var target = findParticipantByName(msg.p.name))
+  }
+*
+  if (cmd === `${prefix}myrole`) {
+    if (msg.p._id === "cedd04479c7028963568f1c0") {
+      bitbot.chat(msg.p.name + ', you have the role: ' + roles[0])
+    } else {
+      if (msg.p._id === "d59ff25d610cd21593d5a00c") {
+        bitbot.chat(msg.p.name + ', you have the role: ' + roles[2])
       } else {
-        if (msg.p._id === "d59ff25d610cd21593d5a00c") {
+        if (msg.p._id === "b28741a5c8548c845db04982") {
           bitbot.chat(msg.p.name + ', you have the role: ' + roles[2])
         } else {
-          if (msg.p._id === "b28741a5c8548c845db04982") {
-            bitbot.chat(msg.p.name + ', you have the role: ' + roles[2])
-          } else {
-            bitbot.chat(msg.p.name + ', You do not appear to have any roles!')
+          bitbot.chat(msg.p.name + ', You do not appear to have any roles!')
+          if (msg.p._id === "ead940199c7d9717e5149919") {
+            bitbot.chat(msg.p.name + ', you have the role: ' + roles[1])
           }
         }
       }
     }
-  });
+  }
+});
