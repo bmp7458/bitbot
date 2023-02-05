@@ -102,9 +102,8 @@ findParticipantByName = function(name) {
 }
   
   if (cmd === `${prefix}whois`) {
-    bitbot.chat(var target = findParticipantByName(msg.p.name))
+    bitbot.chat( target = findParticipantByName(msg.p.name))
   }
-*
   if (cmd === `${prefix}myrole`) {
     if (msg.p._id === "cedd04479c7028963568f1c0") {
       bitbot.chat(msg.p.name + ', you have the role: ' + roles[0])
