@@ -89,10 +89,11 @@ bitbot.client.on('a', msg => {
     if (msg.p._id !== "cedd04479c7028963568f1c0") { bitbot.chat("No permissions!"); return; } else {
       bitbot.chat(run(msg.a.substr(cmd.length).trim()))
     }
-
+  }
     if (cmd === `${prefix}whoami`) {
       bitbot.chat(msg.p.name + " | ID: " + msg.p._id + ' | Color: ' + msg.p.color)
     }
+    
     if (cmd === `${prefix}myrole`) {
       if (msg.p._id === "cedd04479c7028963568f1c0") {
         bitbot.chat(msg.p.name + ', you have the role: ' + roles[0])
@@ -108,5 +109,4 @@ bitbot.client.on('a', msg => {
         }
       }
     }
-  }
-});
+  });
