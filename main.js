@@ -8,8 +8,6 @@ const fs = require('fs')
 const axios = require("axios");
 const responses = ["Absolutely.", "Absolutely not.", "I am unsure.", "Response is a bit hazy...", "I highly doubt it.", "All signs point to yes.", "All signs point to no.", "Of course!"]
 
-const people = require('./data.json')
-
 function run(code) {
   if (new String(code) == "[object Object]" == false && new String(code) == "[object JSON]" == false) {
     try {
